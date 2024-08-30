@@ -1,7 +1,7 @@
 pipeline {
-    agent any // Specifies that the pipeline can run on any available agent/node
+    agent any 
 
-    parameters { // Defines parameters for the pipeline
+    parameters { // Defiing parameters for the pipeline
         string(name: 'emailRecipient', defaultValue: 'muhammadqasimsiddiqui2000@gmail.com', description: 'Email address to receive notifications') // String parameter for recipient email address
         booleanParam(name: 'attachLog', defaultValue: true, description: 'Attach build log to email') // Boolean parameter for attaching build log to email
     }
@@ -29,12 +29,12 @@ pipeline {
                         attachLog: "${params.attachLog}" // Attach build log to email
                     )
                 }
-                failure { // Executes if the stage fails
+                failure { 
                     emailext( // Sends an email notification
                         subject: 'Unit & Integration Tests - Failed!', // Email subject for failed stage
                         body: 'Unit and Integration Tests failed! Check the logs for details..', // Email body for failed stage
                         to: "${params.emailRecipient}", // Email recipient
-                        attachLog: "${params.attachLog}" // Attach build log to email
+                        attachLog: "${params.attachLog}" 
                     )
                 }
             }
@@ -82,14 +82,14 @@ pipeline {
                         subject: 'Integration Tests on Staging - Complete!', // Email subject
                         body: 'Integration tests on Staging environment completed!', // Email body
                         to: "${params.emailRecipient}", // Email recipient
-                        attachLog: "${params.attachLog}" // Attach build log to email
+                        attachLog: "${params.attachLog}" // Attachingnt the build log to email
                     )
                 }
             }
         }
-        stage('Deploy to Production') { // Defines the "Deploy to Production" stage
+        stage('Deploy to Production') { 
             steps {
-                echo 'Deploy the application to a production server (e.g., AWS EC2 instance).' // Echoes a message describing the deploy to production stage
+                echo 'Deploying the application to a production server (e.g., AWS EC2 instance).' // Echoes a message describing the deployment to the production stage
             }
         }
     }
