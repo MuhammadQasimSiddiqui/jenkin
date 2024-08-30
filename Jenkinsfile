@@ -1,7 +1,7 @@
 pipeline {
     agent any 
 
-    parameters { // Defiing parameters for the pipeline
+    parameters { // Defiing parameters for the pipelines
         string(name: 'emailRecipient', defaultValue: 'muhammadqasimsiddiqui2000@gmail.com', description: 'Email address to receive notifications') // String parameter for recipient email address
         booleanParam(name: 'attachLog', defaultValue: true, description: 'Attach build log to email') // Boolean parameter for attaching build log to email
     }
