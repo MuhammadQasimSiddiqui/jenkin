@@ -26,9 +26,7 @@ pipeline {
                         subject: 'Unit & Integration Tests - Success!', // Email subject for successful stage
                         body: 'Unit and Integration Tests passed successfully in the latest version!', // Email body for successful stage
                         to: "${params.emailRecipient}", // Email recipient
-                        attachLog: "${params.attachLog}", // Attach build log to email
-                        mimeType: 'text/plain', // MIME type for the email content
-                        debug: true // Enable debug mode to troubleshoot email sending
+                        attachLog: "${params.attachLog}" // Attach build log to email
                     )
                 }
                 failure { // Executes if the stage fails
@@ -36,9 +34,7 @@ pipeline {
                         subject: 'Unit & Integration Tests - Failed!', // Email subject for failed stage
                         body: 'Unit and Integration Tests failed! Check the logs for details.', // Email body for failed stage
                         to: "${params.emailRecipient}", // Email recipient
-                        attachLog: "${params.attachLog}", // Attach build log to email
-                        mimeType: 'text/plain', // MIME type for the email content
-                        debug: true // Enable debug mode to troubleshoot email sending
+                        attachLog: "${params.attachLog}" // Attach build log to email
                     )
                 }
             }
@@ -58,9 +54,7 @@ pipeline {
                         subject: 'Security Scan - No Vulnerabilities Found!', // Email subject for successful stage
                         body: 'Security scan completed successfully - No vulnerabilities detected!', // Email body for successful stage
                         to: "${params.emailRecipient}", // Email recipient
-                        attachLog: "${params.attachLog}", // Attach build log to email
-                        mimeType: 'text/plain', // MIME type for the email content
-                        debug: true // Enable debug mode to troubleshoot email sending
+                        attachLog: "${params.attachLog}" // Attach build log to email
                     )
                 }
                 failure { // Executes if the stage fails
@@ -68,9 +62,7 @@ pipeline {
                         subject: 'Security Scan - Vulnerabilities Found!', // Email subject for failed stage
                         body: 'Security scan detected vulnerabilities! Address them before deployment.', // Email body for failed stage
                         to: "${params.emailRecipient}", // Email recipient
-                        attachLog: "${params.attachLog}", // Attach build log to email
-                        mimeType: 'text/plain', // MIME type for the email content
-                        debug: true // Enable debug mode to troubleshoot email sending
+                        attachLog: "${params.attachLog}" // Attach build log to email
                     )
                 }
             }
@@ -90,9 +82,7 @@ pipeline {
                         subject: 'Integration Tests on Staging - Complete!', // Email subject
                         body: 'Integration tests on Staging environment completed!', // Email body
                         to: "${params.emailRecipient}", // Email recipient
-                        attachLog: "${params.attachLog}", // Attach build log to email
-                        mimeType: 'text/plain', // MIME type for the email content
-                        debug: true // Enable debug mode to troubleshoot email sending
+                        attachLog: "${params.attachLog}" // Attach build log to email
                     )
                 }
             }
