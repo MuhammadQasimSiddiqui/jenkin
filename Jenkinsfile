@@ -24,7 +24,7 @@ pipeline {
                 success { // Executes if the stage is successful
                     emailext( // Sends an email notification
                         subject: 'Unit & Integration Tests - Success!', // Email subject for successful stage
-                        body: 'Unit and Integration Tests passed successfully in the latest version!', // Email body for successful stage
+                        body: 'Unit and Integration Tests passed successfully in latest version!', // Email body for successful stage
                         to: "${params.emailRecipient}", // Email recipient
                         attachLog: "${params.attachLog}" // Attach build log to email
                     )
@@ -32,7 +32,7 @@ pipeline {
                 failure { // Executes if the stage fails
                     emailext( // Sends an email notification
                         subject: 'Unit & Integration Tests - Failed!', // Email subject for failed stage
-                        body: 'Unit and Integration Tests failed! Check the logs for details.', // Email body for failed stage
+                        body: 'Unit and Integration Tests failed! Check the logs for details..', // Email body for failed stage
                         to: "${params.emailRecipient}", // Email recipient
                         attachLog: "${params.attachLog}" // Attach build log to email
                     )
@@ -60,7 +60,7 @@ pipeline {
                 failure { // Executes if the stage fails
                     emailext( // Sends an email notification
                         subject: 'Security Scan - Vulnerabilities Found!', // Email subject for failed stage
-                        body: 'Security scan detected vulnerabilities! Address them before deployment.', // Email body for failed stage
+                        body: 'Security scan detected vulnerabilities! Address them before deployment..', // Email body for failed stage
                         to: "${params.emailRecipient}", // Email recipient
                         attachLog: "${params.attachLog}" // Attach build log to email
                     )
